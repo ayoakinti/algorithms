@@ -14,19 +14,35 @@ function maxProduct(numbers) {
   return product;
 }
 
-function maxProductFast(numbers) {
-//   const arr = numbers.toString().split(" ");
+// function maxProductFast(numbers) {
+// //   const arr = numbers.toString().split(" ");
 
-  const maxNumber1 = Math.max(...numbers.map((number) => parseInt(number)));
-  const index = numbers.indexOf(maxNumber1);
-  numbers.splice(index, 1);
-  const maxNumber2 = Math.max(
-    ...numbers
-      .map((number) => parseInt(number))
-  );
-//   console.log(maxNumber1, "max1");
-//   console.log(maxNumber2, "max2");
-  const maxProduct = maxNumber1 * maxNumber2;
+//   const maxNumber1 = Math.max(...numbers);
+//   const index = numbers.indexOf(maxNumber1);
+//   numbers.splice(index, 1);
+//   const maxNumber2 = Math.max(...numbers);
+// //   console.log(maxNumber1, "max1");
+// //   console.log(maxNumber2, "max2");
+//   const maxProduct = maxNumber1 * maxNumber2;
+
+//   return maxProduct;
+// }
+function maxProductFast(arr) {
+
+  let MaxNumber = 0;
+  let NextMaxNumber = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > MaxNumber) {
+      NextMaxNumber = MaxNumber;
+      MaxNumber = arr[i];
+    } else if (arr[i] > NextMaxNumber) {
+      NextMaxNumber = arr[i];
+    } else {
+      continue;
+    }
+  }
+
+  const maxProduct = MaxNumber * NextMaxNumber;
 
   return maxProduct;
 }
