@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 
 var arr;
 
-rl.once("line", () => {
+rl.on("line", () => {
   rl.on("line", maxProductFast);
 });
 
