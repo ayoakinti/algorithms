@@ -128,11 +128,14 @@ while (true) {
   }
 //   console.log(search2, "fast");
   if (!compare(search1, search2)) {
+    // if (search1.length != search2.length) {
     console.log(`Different`);
     console.log(`${search1}`);
     console.log(`${search2}`);
     break;
   } else {
     console.log("Same");
+    // console.log(...search1, "slow");
+    // console.log(...search2, "fast");
   }
 }

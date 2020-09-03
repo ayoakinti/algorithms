@@ -14,22 +14,24 @@ rl.once("line", (numbers) => {
     let final = store.length;
     let initial = 0;
 
-    for (let i = 0; i < input.length; i++) {
-      output.push(search(store, input[i], initial, final));
-    //   output.push(search(store, input[i], c));
-    //   console.log(i, output[i], "output");
-    }
+    // for (let i = 0; i < input.length; i++) {
+    //   output.push(search(store, input[i], initial, final));
+    // //   output.push(search(store, input[i], c));
+    // //   console.log(i, output[i], "output");
+    // }
     // console.log(...output);
-    // rl.close();
-    const res = output.join(" ");
-    const maxLength = 50000;
+    // console.log(store, input);
+    console.log(...searchArray(input, store));
+    rl.close();
+    // const res = output.join(" ");
+    // const maxLength = 50000;
 
-    for (let i = 0; i < res.length; i += maxLength) {
-      process.stdout.write(res.slice(i, i + maxLength));
-    }
+    // for (let i = 0; i < res.length; i += maxLength) {
+    //   process.stdout.write(res.slice(i, i + maxLength));
+    // }
 
-    process.stdout.write("\n");
-    process.exit();
+    // process.stdout.write("\n");
+    // process.exit();
   });
 });
 
@@ -82,4 +84,13 @@ function search(arr, b, l, r) {
             // return -4;
         }
     }
+}
+
+function searchArray(arr, store) {
+  // console.log(store, store.length);
+  let index = []
+  for(let i = 0; i < arr.length; i++){
+    index.push(search(store, arr[i], 0, store.length));
+  }
+  return index;
 }
