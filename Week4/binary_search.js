@@ -21,7 +21,13 @@ rl.once("line", (numbers) => {
     // }
     // console.log(...output);
     // console.log(store, input);
-    console.log(...searchArray(input, store));
+    // console.log(...searchArray(input, store));
+    let result = searchArray(input, store);
+    let res = "";
+    for(let i = 0; i < result.length; i++){
+        res += result[i] + " ";
+    }
+    console.log(res);
     rl.close();
     // const res = output.join(" ");
     // const maxLength = 50000;

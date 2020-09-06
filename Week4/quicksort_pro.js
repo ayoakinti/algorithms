@@ -11,7 +11,12 @@ rl.once("line", () => {
     let length = arr.length;
     let initial = Math.floor(Math.random() * length);
 
-    console.log(...sort(arr, initial, length));
+    let result = sort(arr, initial, length);
+    let res = "";
+    for(let i = 0; i < result.length; i++){
+        res += result[i] + " ";
+    }
+    console.log(res);
     rl.close();
 
     // let output = sort(arr, initial, length);
