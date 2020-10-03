@@ -13,27 +13,29 @@ rl.once("line", (line) => {
     const arr = digits.toString().split(" ").map(Number);
     s.push(arr);
     count++;
-    if (count == ns) {
-      // rl.close();
-      // console.log(s,s.length, "s");
-      rl.on("line", (line) => {
-        const p = line.toString().split(" ").map(Number);
-        // console.log(p, "p");
+    if (count == ns + 1) {
+      let p = s[s.length - 1];
+      s.splice(s.length - 1, 1);
 
-        console.log(...lottery(s, p));
-        rl.close();
-      });
+      let result = lottery(s, p);
+      let res = "";
+      for (let i = 0; i < result.length; i++) {
+        res += result[i] + " ";
+      }
+      console.log(res);
+      rl.close();
     }
   });
 });
 
 function lottery(s, p) {
+  // console.log(s, p, "inputs");
   counts = [];
-  // console.log(s, "s")
+
   for (let i = 0; i < p.length; i++) {
     let count = 0;
     // console.log(i, "i");
-    for (let j = 0; j < s.length - 1; j++) {
+    for (let j = 0; j < s.length; j++) {
       // console.log(j, "j");
       if (s[j][0] <= p[i] && s[j][1] >= p[i]) {
         // console.log(s[j], "s (j)")
@@ -46,3 +48,7 @@ function lottery(s, p) {
   }
   return counts;
 }
+
+// function quicksort(s, p){
+  
+// }
