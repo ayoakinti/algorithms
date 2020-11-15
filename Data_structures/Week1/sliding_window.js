@@ -24,7 +24,7 @@ rl.on("line", (line) => {
 });
 
 function maxSlide(n, input, m) {
-  //   console.log(n, input, m, "inputs");
+  // console.log(n, input, m, "inputs");
   let queue = [];
   let maxQueue = [];
   let maxResult = [];
@@ -83,17 +83,17 @@ function maxSlide(n, input, m) {
           maxQueue.unshift(added);
         }
       } else if (added >= maxQueue[maxQueue.length - 1]) {
-      let length = maxQueue.length;
-      //   console.log(maxQueue, i, "before pops");
-      for (let i = length - 1; i > 0; i--) {
-        if (added >= maxQueue[i]) {
-          maxQueue.pop();
+        let length = maxQueue.length;
+        //   console.log(maxQueue, i, "before pops");
+        for (let i = length - 1; i > 0; i--) {
+          if (added >= maxQueue[i]) {
+            maxQueue.pop();
+          }
         }
-      }
-      //   console.log(maxQueue, i, "after pops");
-      maxQueue.push(added);
-      //   console.log(maxQueue, i, "after adding new element");
-    } else if (maxQueue.length == 1) {
+        //   console.log(maxQueue, i, "after pops");
+        maxQueue.push(added);
+        //   console.log(maxQueue, i, "after adding new element");
+      } else if (maxQueue.length == 1) {
         maxQueue.push(added);
       } else {
         maxQueue.push(added);
